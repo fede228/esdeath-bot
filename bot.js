@@ -67,7 +67,7 @@ function members() {
   let rifa = `${server.roles.cache.find(role => role.name == 'Leader Rifa').members.map(m => m.displayName)}`;
   let nwmc = `${server.roles.cache.find(role => role.name == 'Leader Night Wolf').members.map(m => m.displayName)}`;
 
-  channel.messages.fetch('782263368446115860').then(async online_message => {
+  channel.messages.fetch('787326181547442186').then(async online_message => {
    if (!online_message) return console.error(`Ошибка вывода online_message()`);
    online_message.edit(null, {embed: {
         description: `\`\`\`md\n# Лидеры фракций\`\`\``,
@@ -194,6 +194,7 @@ client.on("voiceStateUpdate",(oldState,newState) => {
 }
 if(oldState.channel?.id != channelid && oldState.channel?.parent?.id == categoryid && !oldState.channel?.members.size) oldState.channel.delete();
 })
+
 client.on("ready", async() => {
   const channel = client.channels.cache.get(`783103534148091904`);
   if (channel) {
@@ -227,7 +228,6 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     member.roles.remove(role)
   }
 })
-
 client.on('message',message => {
   if (message.content.startsWith(`/cont-vip`)) {
     let titan = message.guild.roles.cache.find((r) => r.name ==   'Подписка на контент "Illegal"');

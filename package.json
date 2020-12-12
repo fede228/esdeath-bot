@@ -4,17 +4,17 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "engines": {
-  "node": "15.3.0"
+    "node": "15.3.0"
   },
   "dependencies": {
-  "ascii-table": "0.0.9",
-  "discord.js": "^12.4.1",
-  "ms": "^2.1.2",
-  "node.js": "^0.0.1-security"
+    "ascii-table": "^0.0.9",
+    "discord.js": "^12.4.1",
+    "ms": "^2.1.2",
+    "node.js": "^0.0.1-security"
   }
-  }
+}
