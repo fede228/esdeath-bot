@@ -19,8 +19,8 @@ module.exports = {
     let ferrero_squad = message.guild.roles.cache.find((r) => r.name == "ferrero squad");
     let revenge = message.guild.roles.cache.find((r) => r.name == "ревенге клан 🤡");
     let wockeez = message.guild.roles.cache.find((r) => r.name == "wockeez corp.");
-    let deb_clan = message.guild.roles.cache.find((r) = r.name == "дэб клан");
-    let zip = message.guild.roles.cache.find((r) = r.name == "ZIP  castle anarchy");
+    let deb_clan = message.guild.roles.cache.find((r) => r.name == "дэб клан");
+    let zip = message.guild.roles.cache.find((r) => r.name == "ZIP  castle anarchy");
 
 
     if (!user) {
