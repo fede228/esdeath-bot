@@ -39,7 +39,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'Cause'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'Cause'\``);
             message.delete();
                 return;
@@ -54,7 +54,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана '🔪Night Raid🔪'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: '🔪Night Raid🔪'\``);
             message.delete();
                 return;
@@ -69,7 +69,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'ferrero squad'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'ferrero squad'\``);
             message.delete();
                 return;
@@ -85,7 +85,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'ревенге клан 🤡'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'ревенге клан 🤡'\``);
             message.delete();
                 return;
@@ -101,7 +101,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'wockeez corp.'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'wockeez corp.'\``);
             message.delete();
                 return;
@@ -117,7 +117,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'дэб клан'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'дэб клан'\``);
             message.delete();
                 return;
@@ -133,7 +133,7 @@ module.exports = {
          let general = message.channel; // общий
         if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'ZIP  castle anarchy'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
-        client.channels.cache.get("785837300571308083").send(
+        client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'ZIP  castle anarchy'\``);
             message.delete();
                 return;
