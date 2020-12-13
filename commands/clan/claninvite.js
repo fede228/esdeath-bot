@@ -8,7 +8,8 @@ module.exports = {
   description: 'Выдача ролей клана',
   run: async (client, message, messageReaction, reaction) => {
     const errorEmbed = require('../../Utils/error')
-    if (!message.member.roles.cache.some(r => ['Руководство клана Cause' , 'Руководство клана 🔪Night Raid🔪' , 'Руководство клана ferrero squad' ,'Руководство клана ревенге клан 🤡' ,'Руководство клана " wockeez corp. "'].includes(r.name))) {
+    if (!message.member.roles.cache.some(r => ['Руководство клана Cause' , 'Руководство клана 🔪Night Raid🔪' , 'Руководство клана ferrero squad' ,'Руководство клана ревенге клан 🤡' ,'Руководство клана " wockeez corp. " ' , "Руководство клана Hutoryanskiy mafia 🤡" , 
+    'Руководство клана дэб клан' , 'Руководство клана "ZIP  castle anarchy"', 'Руководство клана Visconti fam.'].includes(r.name))) {
         return message.channel.send(errorEmbed(message.client, 'Вы не являетесь руководителем какого-либо клана.')).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
           } 
