@@ -21,6 +21,8 @@ module.exports = {
     let wockeez = message.guild.roles.cache.find((r) => r.name == "wockeez corp.");
     let deb_clan = message.guild.roles.cache.find((r) => r.name == "дэб клан");
     let zip = message.guild.roles.cache.find((r) => r.name == "ZIP  castle anarchy");
+    let hutor = message.guild.roles.cache.find((r) => r.name == "Hutoryanskiy mafia 🤡");
+    let visconti = message.guild.roles.cache.find((r) => r.name == "Visconti fam.");
 
 
     if (!user) {
@@ -139,7 +141,37 @@ module.exports = {
                 return;
             }
         
-        
+             //Hutor
+      if (
+        message.member.roles.cache.some((r) =>
+        ['Руководство клана Hutoryanskiy mafia 🤡'].includes(r.name)
+      )
+    ) {
+        if (!user.roles.cache.some(r => r.id == "Hutoryanskiy mafia 🤡")) user.roles.add(hutor)
+         let general = message.channel; // общий
+        if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'Hutoryanskiy mafia 🤡'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
+            d_msg.delete({timeout: 10000})});
+        client.channels.cache.get("787380787107987496").send(
+            `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'Hutoryanskiy mafia 🤡'\``);
+            message.delete();
+                return;
+            }
+            
+             //visconti
+      if (
+        message.member.roles.cache.some((r) =>
+        ['Руководство клана Visconti fam.'].includes(r.name)
+      )
+    ) {
+        if (!user.roles.cache.some(r => r.id == "Visconti fam.")) user.roles.add(visconti)
+         let general = message.channel; // общий
+        if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'Visconti fam.'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
+            d_msg.delete({timeout: 10000})});
+        client.channels.cache.get("787380787107987496").send(
+            `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'Visconti fam.'\``);
+            message.delete();
+                return;
+            }
         }
   }
     
