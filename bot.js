@@ -228,6 +228,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     member.roles.remove(role)
   }
 })
+
 client.on('message',message => {
   if (message.content.startsWith(`/cont-vip`)) {
     let titan = message.guild.roles.cache.find((r) => r.name ==   'Подписка на контент "Illegal"');
