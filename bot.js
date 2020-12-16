@@ -4,8 +4,7 @@ const { Client, Collection, Discord, MessageEmbed } = require('discord.js');
 const client = new Client({ disableEveryone: true })
 client.commands = new Collection();
 client.aliases = new Collection();
-
-
+require('dotenv').config();
 ["handler"].forEach(handler => {
   require(`./bot-handler/${handler}`)(client)
 })
@@ -272,4 +271,28 @@ message.delete();
         .setFooter(`© Команда модерации | Illegals`))
     }})
 
-client.login(config.token);
+    client.on("message", async (message) => {
+      if (message.author.bot) return;//Если автор другой бот - нет.
+      if (message.channel.type == "dm") return;//Если команда в личку - нет.
+      if (message.guild.id != "742406971625570345") return;//Проверяем сервер
+      let channelidea = client.channels.cache.get(`788604530198708274`)
+      if(message.channel.id === channelidea.id){
+        message.reply('**`[SYSTEM]`**`Ваша идея была передана разработчикам бота. Если они посчитают её полезной, то реализуют.`').then(d_msg => { 
+          d_msg.delete({timeout: 10000})});
+        message.delete();//Удаляем сообщение
+        let embed = new MessageEmbed()
+        .setTitle(`Предложение от ${message.author.tag}`)
+        .setThumbnail(message.author.avatarURL({ format: 'png', dynamic: true, size: 1024} ))
+        .setDescription(`**Предложение по улучшению: \`${message.content}\`**`)
+        .addField(`**Решите, нужно это или нет.**`, `**👍 - хорошое предложение\n\n👎 - плохое предложение**`)
+        .setColor('RANDOM')
+        .setTimestamp();
+        let testing = client.channels.cache.get(`761271649597128745`)
+        testing.send("**Внимание! была предложена новая идея, рассмотрите её**", embed).then(async(msg) => {
+          await msg.react("👍");
+          await msg.react("👎");
+          });
+        }
+      });
+
+client.login(process.env.token);
