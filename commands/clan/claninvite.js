@@ -9,7 +9,7 @@ module.exports = {
   run: async (client, message, messageReaction, reaction) => {
     const errorEmbed = require('../../Utils/error')
     if (!message.member.roles.cache.some(r => ['Руководство клана Cause' , 'Руководство клана 🔪Night Raid🔪' , 'Руководство клана ferrero squad' ,'Руководство клана ревенге клан 🤡' ,'Руководство клана " wockeez corp. " ' , "Руководство клана Hutoryanskiy mafia 🤡" , 
-    'Руководство клана дэб клан' , 'Руководство клана "ZIP  castle anarchy"', 'Руководство клана Visconti fam.'].includes(r.name))) {
+    'Руководство клана дэб клан' , 'Руководство клана "ZIP  castle anarchy"', 'Руководство клана Visconti fam.' , 'Руководство клана Фанат Leva$ha и это не обсуждается 🤡'].includes(r.name))) {
         return message.channel.send(errorEmbed(message.client, 'Вы не являетесь руководителем какого-либо клана.')).then(d_msg => { 
             d_msg.delete({timeout: 10000})});
           } 
@@ -24,6 +24,8 @@ module.exports = {
     let zip = message.guild.roles.cache.find((r) => r.name == "ZIP  castle anarchy");
     let hutor = message.guild.roles.cache.find((r) => r.name == "Hutoryanskiy mafia 🤡");
     let visconti = message.guild.roles.cache.find((r) => r.name == "Visconti fam.");
+        let levash = message.guild.roles.cache.find((r) => r.name == "Фанат Leva$ha и это не обсуждается 🤡");
+
 
 
     if (!user) {
@@ -170,6 +172,21 @@ module.exports = {
             d_msg.delete({timeout: 10000})});
         client.channels.cache.get("787380787107987496").send(
             `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'Visconti fam.'\``);
+            message.delete();
+                return;
+            }
+            //levash
+      if (
+        message.member.roles.cache.some((r) =>
+        ['Руководство клана Фанат Leva$ha и это не обсуждается 🤡'].includes(r.name)
+      )
+    ) {
+        if (!user.roles.cache.some(r => r.id == "Фанат Leva$ha и это не обсуждается 🤡")) user.roles.add(levash)
+         let general = message.channel; // общий
+        if (general) await general.send(`${user}, \`теперь вы являетесь участником клана 'Фанат Leva$ha и это не обсуждается 🤡'! Пригласил:\` <@${message.author.id}>`).then(d_msg => { 
+            d_msg.delete({timeout: 10000})});
+        client.channels.cache.get("787380787107987496").send(
+            `\`[INVITE]\` <@${message.author.id}> \`пригласил пользователя\` <@${user.id}> \`в клан: 'Фанат Leva$ha и это не обсуждается 🤡'\``);
             message.delete();
                 return;
             }
