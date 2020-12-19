@@ -228,6 +228,40 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
   }
 })
 
+client.on("ready", async() => {
+  const channel = client.channels.cache.get(`789581188011917313`);
+  if (channel) {
+    const fetchedChannels = [channel];
+    fetchedChannels.forEach(c => {
+      c.messages.fetch(`789581204910374942`).then(msg => msg.react("🎁"));
+    })
+  }
+})
+
+client.on("messageReactionAdd", async (messageReaction, user) => {
+  let message = messageReaction.message;
+  let guildoff = client.guilds.cache.get(`742406971625570345`);
+  if(message.guild.id != guildoff.id) return;
+  if(message.channel.id != "789581188011917313") return;
+  if(messageReaction.emoji.name === "🎁"){
+    let member = message.guild.members.cache.get(user.id)
+    let role = message.guild.roles.cache.get(`789936580386488331`)
+    member.roles.add(role)
+  }
+})
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+  let message = messageReaction.message;
+  let guildoff = client.guilds.cache.get(`742406971625570345`);
+  if(message.guild.id != guildoff.id) return;
+  if(message.channel.id != "789581188011917313") return;
+  if(messageReaction.emoji.name === "🎁"){
+    let member = message.guild.members.cache.get(user.id)
+    let role = message.guild.roles.cache.get(`789936580386488331`)
+    member.roles.remove(role)
+  }
+})
+
 client.on('message',message => {
   if (message.content.startsWith(`/cont-vip`)) {
     let titan = message.guild.roles.cache.find((r) => r.name ==   'Подписка на контент "Illegal"');
