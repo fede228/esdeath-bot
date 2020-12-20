@@ -231,7 +231,6 @@ message.delete();
           })
         }
       })
-      
       client.on("messageReactionAdd", async (messageReaction, user) => {
         let message = messageReaction.message;
         let guildoff = client.guilds.cache.get(`742406971625570345`);
