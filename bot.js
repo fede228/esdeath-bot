@@ -43,46 +43,7 @@ client.on('message', message => {
   } 
 });
 
-client.on('ready', () => {
-  members(); // Прогон при запуске
-});
 
-setInterval(() => {
-  members()
-}, 300000); // Прогон каждые 5 минут
-
-function members() {
-  let server = client.guilds.cache.get('742406971625570345');
-  let channel = server.channels.cache.get('771109164851396649');
-
- let rm = `${server.roles.cache.find(role => role.name == 'Leader Russian Mafia').members.map(m => m.displayName)}`;
-  let ykz = `${server.roles.cache.find(role => role.name == 'Leader Yakuza').members.map(m => m.displayName)}`;
-  let wmc = `${server.roles.cache.find(role => role.name == 'Leader Warlock MC').members.map(m => m.displayName)}`;
-  let lcn = `${server.roles.cache.find(role => role.name == 'Leader La Cosa Nostra').members.map(m => m.displayName)}`;
-  let grove = `${server.roles.cache.find(role => role.name == 'Leader Grove Street').members.map(m => m.displayName)}`;
-  let ballas = `${server.roles.cache.find(role => role.name == 'Leader Ballas').members.map(m => m.displayName)}`;
-  let aztec = `${server.roles.cache.find(role => role.name == 'Leader Aztec').members.map(m => m.displayName)}`;
-  let vagos = `${server.roles.cache.find(role => role.name == 'Leader Vagos').members.map(m => m.displayName)}`;
-  let rifa = `${server.roles.cache.find(role => role.name == 'Leader Rifa').members.map(m => m.displayName)}`;
-  let nwmc = `${server.roles.cache.find(role => role.name == 'Leader Night Wolf').members.map(m => m.displayName)}`;
-
-  channel.messages.fetch('787326181547442186').then(async online_message => {
-   if (!online_message) return console.error(`Ошибка вывода online_message()`);
-   online_message.edit(null, {embed: {
-        description: `\`\`\`md\n# Лидеры фракций\`\`\``,
-        color: 0x8533ff,
-        setFooter: ('Последнее обновление:'),
-        setTimestamp:('') ,
-        fields:[
-            { name: `Фракция:`, value: `**Russian Mafia\nYakuza\nWarlock MC\nLa Cosa Nostra\nGrove Street\nBallas\nAztec\nVagos\nRifa\nNight Wolf**`, inline: true },
-            { name: `Лидеры:`, value: `${rm ? rm : 'Нет лидера'}\n${ykz ? ykz : 'Нет лидера'}\n${wmc ? wmc : 'Нет лидера'}\n${lcn ? lcn : 'Нет лидера'}\n${grove ? grove : 'Нет лидера'}\n${ballas ? ballas : 'Нет лидера'}\n${aztec ? aztec : 'Нет лидера'}\n${vagos ? vagos : 'Нет лидера'}\n${rifa ? rifa : 'Нет лидера'}\n${nwmc ? nwmc : 'Нет лидера'}`, inline: true }
-        ]
-    }});
-  }).catch(() => {
-      console.error(`Не получилось найти сообщение в online_info. Ошибка.`);
-  });
-}
-// Рестарт бота.
 
 let setembed_general = ["не указано", "не указано", "не указано", "не указано", "не указано", "не указано", "не указано", "не указано"];
 let setembed_fields = ["нет", "нет", "нет", "нет", "нет", "нет", "нет", "нет", "нет", "нет"];
@@ -194,73 +155,6 @@ client.on("voiceStateUpdate",(oldState,newState) => {
 if(oldState.channel?.id != channelid && oldState.channel?.parent?.id == categoryid && !oldState.channel?.members.size) oldState.channel.delete();
 })
 
-client.on("ready", async() => {
-  const channel = client.channels.cache.get(`783103534148091904`);
-  if (channel) {
-    const fetchedChannels = [channel];
-    fetchedChannels.forEach(c => {
-      c.messages.fetch(`783104841287335957`).then(msg => msg.react("🎅"));
-    })
-  }
-})
-
-client.on("messageReactionAdd", async (messageReaction, user) => {
-  let message = messageReaction.message;
-  let guildoff = client.guilds.cache.get(`742406971625570345`);
-  if(message.guild.id != guildoff.id) return;
-  if(message.channel.id != "783103534148091904") return;
-  if(messageReaction.emoji.name === "🎅"){
-    let member = message.guild.members.cache.get(user.id)
-    let role = message.guild.roles.cache.get(`783088329486237716`)
-    member.roles.add(role)
-  }
-})
-
-client.on("messageReactionRemove", async (messageReaction, user) => {
-  let message = messageReaction.message;
-  let guildoff = client.guilds.cache.get(`742406971625570345`);
-  if(message.guild.id != guildoff.id) return;
-  if(message.channel.id != "783103534148091904") return;
-  if(messageReaction.emoji.name === "🎅"){
-    let member = message.guild.members.cache.get(user.id)
-    let role = message.guild.roles.cache.get(`783088329486237716`)
-    member.roles.remove(role)
-  }
-})
-
-client.on("ready", async() => {
-  const channel = client.channels.cache.get(`789581188011917313`);
-  if (channel) {
-    const fetchedChannels = [channel];
-    fetchedChannels.forEach(c => {
-      c.messages.fetch(`789581204910374942`).then(msg => msg.react("🎁"));
-    })
-  }
-})
-
-client.on("messageReactionAdd", async (messageReaction, user) => {
-  let message = messageReaction.message;
-  let guildoff = client.guilds.cache.get(`742406971625570345`);
-  if(message.guild.id != guildoff.id) return;
-  if(message.channel.id != "789581188011917313") return;
-  if(messageReaction.emoji.name === "🎁"){
-    let member = message.guild.members.cache.get(user.id)
-    let role = message.guild.roles.cache.get(`789936580386488331`)
-    member.roles.add(role)
-  }
-})
-
-client.on("messageReactionRemove", async (messageReaction, user) => {
-  let message = messageReaction.message;
-  let guildoff = client.guilds.cache.get(`742406971625570345`);
-  if(message.guild.id != guildoff.id) return;
-  if(message.channel.id != "789581188011917313") return;
-  if(messageReaction.emoji.name === "🎁"){
-    let member = message.guild.members.cache.get(user.id)
-    let role = message.guild.roles.cache.get(`789936580386488331`)
-    member.roles.remove(role)
-  }
-})
 
 client.on('message',message => {
   if (message.content.startsWith(`/cont-vip`)) {
@@ -309,7 +203,7 @@ message.delete();
       if (message.author.bot) return;//Если автор другой бот - нет.
       if (message.channel.type == "dm") return;//Если команда в личку - нет.
       if (message.guild.id != "742406971625570345") return;//Проверяем сервер
-      let channelidea = client.channels.cache.get(`788604530198708274`)
+      let channelidea = client.channels.cache.get(`790003044775493682`)
       if(message.channel.id === channelidea.id){
         message.reply('**`[SYSTEM]`**`Ваша идея была передана разработчикам бота. Если они посчитают её полезной, то реализуют.`').then(d_msg => { 
           d_msg.delete({timeout: 10000})});
@@ -327,6 +221,114 @@ message.delete();
           await msg.react("👎");
           });
         }
+      })
+      client.on("ready", async() => {
+        const channel = client.channels.cache.get(`789997059888513024`);
+        if (channel) {
+          const fetchedChannels = [channel];
+          fetchedChannels.forEach(c => {
+            c.messages.fetch(`790003794997936158`).then(msg => msg.react("🎅"));
+          })
+        }
+      })
+      
+      client.on("messageReactionAdd", async (messageReaction, user) => {
+        let message = messageReaction.message;
+        let guildoff = client.guilds.cache.get(`742406971625570345`);
+        if(message.guild.id != guildoff.id) return;
+        if(message.channel.id != "789997059888513024") return;
+        if(messageReaction.emoji.name === "🎅"){
+          let member = message.guild.members.cache.get(user.id)
+          let role = message.guild.roles.cache.get(`783088329486237716`)
+          member.roles.add(role)
+        }
+      })
+      
+      client.on("messageReactionRemove", async (messageReaction, user) => {
+        let message = messageReaction.message;
+        let guildoff = client.guilds.cache.get(`742406971625570345`);
+        if(message.guild.id != guildoff.id) return;
+        if(message.channel.id != "789997059888513024") return;
+        if(messageReaction.emoji.name === "🎅"){
+          let member = message.guild.members.cache.get(user.id)
+          let role = message.guild.roles.cache.get(`783088329486237716`)
+          member.roles.remove(role)
+        }
+      })
+      
+      client.on("ready", async() => {
+        const channel = client.channels.cache.get(`789997086732714025`);
+        if (channel) {
+          const fetchedChannels = [channel];
+          fetchedChannels.forEach(c => {
+            c.messages.fetch(`790004269893550091`).then(msg => msg.react("🎁"));
+          })
+        }
+      })
+      
+      client.on("messageReactionAdd", async (messageReaction, user) => {
+        let message = messageReaction.message;
+        let guildoff = client.guilds.cache.get(`742406971625570345`);
+        if(message.guild.id != guildoff.id) return;
+        if(message.channel.id != "789997086732714025") return;
+        if(messageReaction.emoji.name === "🎁"){
+          let member = message.guild.members.cache.get(user.id)
+          let role = message.guild.roles.cache.get(`789936580386488331`)
+          member.roles.add(role)
+        }
+      })
+      
+      client.on("messageReactionRemove", async (messageReaction, user) => {
+        let message = messageReaction.message;
+        let guildoff = client.guilds.cache.get(`742406971625570345`);
+        if(message.guild.id != guildoff.id) return;
+        if(message.channel.id != "789997086732714025") return;
+        if(messageReaction.emoji.name === "🎁"){
+          let member = message.guild.members.cache.get(user.id)
+          let role = message.guild.roles.cache.get(`789936580386488331`)
+          member.roles.remove(role)
+        }
+      })
+      
+      client.on('ready', () => {
+        members(); // Прогон при запуске
       });
+      
+      setInterval(() => {
+        members()
+      }, 300000); // Прогон каждые 5 минут
+      
+      function members() {
+        let server = client.guilds.cache.get('742406971625570345');
+        let channel = server.channels.cache.get('789994414730772480');
+      
+       let rm = `${server.roles.cache.find(role => role.name == 'Leader Russian Mafia').members.map(m => m.displayName)}`;
+        let ykz = `${server.roles.cache.find(role => role.name == 'Leader Yakuza').members.map(m => m.displayName)}`;
+        let wmc = `${server.roles.cache.find(role => role.name == 'Leader Warlock MC').members.map(m => m.displayName)}`;
+        let lcn = `${server.roles.cache.find(role => role.name == 'Leader La Cosa Nostra').members.map(m => m.displayName)}`;
+        let grove = `${server.roles.cache.find(role => role.name == 'Leader Grove Street').members.map(m => m.displayName)}`;
+        let ballas = `${server.roles.cache.find(role => role.name == 'Leader Ballas').members.map(m => m.displayName)}`;
+        let aztec = `${server.roles.cache.find(role => role.name == 'Leader Aztec').members.map(m => m.displayName)}`;
+        let vagos = `${server.roles.cache.find(role => role.name == 'Leader Vagos').members.map(m => m.displayName)}`;
+        let rifa = `${server.roles.cache.find(role => role.name == 'Leader Rifa').members.map(m => m.displayName)}`;
+        let nwmc = `${server.roles.cache.find(role => role.name == 'Leader Night Wolf').members.map(m => m.displayName)}`;
+      
+        channel.messages.fetch('790003144611594251').then(async online_message => {
+         if (!online_message) return console.error(`Ошибка вывода online_message()`);
+         online_message.edit(null, {embed: {
+              description: `\`\`\`md\n# Лидеры фракций\`\`\``,
+              color: 0x8533ff,
+              setFooter: ('Последнее обновление:'),
+              setTimestamp:('') ,
+              fields:[
+                  { name: `Фракция:`, value: `**Russian Mafia\nYakuza\nWarlock MC\nLa Cosa Nostra\nGrove Street\nBallas\nAztec\nVagos\nRifa\nNight Wolf**`, inline: true },
+                  { name: `Лидеры:`, value: `${rm ? rm : 'Нет лидера'}\n${ykz ? ykz : 'Нет лидера'}\n${wmc ? wmc : 'Нет лидера'}\n${lcn ? lcn : 'Нет лидера'}\n${grove ? grove : 'Нет лидера'}\n${ballas ? ballas : 'Нет лидера'}\n${aztec ? aztec : 'Нет лидера'}\n${vagos ? vagos : 'Нет лидера'}\n${rifa ? rifa : 'Нет лидера'}\n${nwmc ? nwmc : 'Нет лидера'}`, inline: true }
+              ]
+          }});
+        }).catch(() => {
+            console.error(`Не получилось найти сообщение в online_info. Ошибка.`);
+        });
+      }
+      // Рестарт бота.
 
 client.login(process.env.token);
